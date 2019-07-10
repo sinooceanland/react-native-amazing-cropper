@@ -10,13 +10,14 @@ const Cropper = (props) => (
       <Image
         style={props.getImageStyle()}
         source={{ uri: props.imageUri }}
+        resizeMode={'contain'}
       />
     </View>
-    
+
     <View style={styles.footerContainer}>
-      { 
+      {
         React.cloneElement(
-          props.footerComponent, 
+          props.footerComponent,
           {
             onDone: props.onDone,
             onRotate: props.onRotate,
