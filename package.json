@@ -1,29 +1,39 @@
 {
-  "name": "react-native-amazing-cropper",
-  "version": "0.0.9",
-  "description": "Custom react native cropper with rotation",
-  "main": "index.js",
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
+  "_from": "git+https://github.com/sinooceanland/react-native-amazing-cropper.git",
+  "_id": "react-native-amazing-cropper@0.0.9",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/react-native-amazing-cropper",
+  "_phantomChildren": {},
+  "_requested": {
     "type": "git",
-    "url": "git+https://github.com/ggunti/react-native-amazing-cropper.git"
+    "raw": "react-native-amazing-cropper@git+https://github.com/sinooceanland/react-native-amazing-cropper.git",
+    "name": "react-native-amazing-cropper",
+    "escapedName": "react-native-amazing-cropper",
+    "rawSpec": "git+https://github.com/sinooceanland/react-native-amazing-cropper.git",
+    "saveSpec": "git+https://github.com/sinooceanland/react-native-amazing-cropper.git",
+    "fetchSpec": "https://github.com/sinooceanland/react-native-amazing-cropper.git",
+    "gitCommittish": null
   },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/sinooceanland/react-native-amazing-cropper.git#fcd987d9accbffd8aba09ce72a1c721c084420c0",
+  "_spec": "react-native-amazing-cropper@git+https://github.com/sinooceanland/react-native-amazing-cropper.git",
+  "_where": "/Users/mike/Documents/NewOfficeApp.Office",
   "author": {
     "name": "Gotha Guntter",
     "email": "ggunty96@gmail.com"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ggunti/react-native-amazing-cropper/issues"
+  },
+  "bundleDependencies": false,
   "dependencies": {
     "prop-types": "^15.6.2"
   },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*",
-    "react-native-image-rotate": "*"
-  },
+  "deprecated": false,
+  "description": "Custom react native cropper with rotation",
   "devDependencies": {
     "babel-jest": "23.6.0",
     "eslint-config-rallycoding": "^3.2.0",
@@ -31,6 +41,7 @@
     "metro-react-native-babel-preset": "0.48.2",
     "react-test-renderer": "16.6.0-alpha.8af6728"
   },
+  "homepage": "https://github.com/ggunti/react-native-amazing-cropper",
   "keywords": [
     "react-native",
     "react",
@@ -39,8 +50,21 @@
     "image",
     "cropper"
   ],
-  "bugs": {
-    "url": "https://github.com/ggunti/react-native-amazing-cropper/issues"
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-amazing-cropper",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-image-rotate": "*"
   },
-  "homepage": "https://github.com/ggunti/react-native-amazing-cropper"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggunti/react-native-amazing-cropper.git"
+  },
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.9"
 }
