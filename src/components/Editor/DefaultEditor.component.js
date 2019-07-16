@@ -5,23 +5,23 @@ import styles from './DefaultEditor.component.style';
 const DefaultEditor = (props) => (
     <View style={{flex: 1}}>
         <View style={styles.gridRow}>
-        <View style={styles.gridColumn}>
-            {/*左上*/}
-            <View style={[styles.borderDesign, {borderLeftWidth: 3, borderTopWidth: 3}]}/>
+            <View style={styles.gridColumn}>
+                {/*左上*/}
+                <View style={[styles.borderDesign, {borderLeftWidth: 3, borderTopWidth: 3}]}/>
+            </View>
+            <View style={styles.gridColumn}>
+                {/*上中*/}
+                <View style={[styles.borderDesign, {borderTopWidth: 3, alignSelf: 'center'}]}/>
+            </View>
+            <View style={styles.gridColumn}>
+                {/*右上*/}
+                <View style={[styles.borderDesign, {
+                    borderTopWidth: 3,
+                    borderRightWidth: 3,
+                    alignSelf: 'flex-end'
+                }]}/>
+            </View>
         </View>
-        <View style={styles.gridColumn}>
-            {/*上中*/}
-            <View style={[styles.borderDesign, {borderTopWidth: 3, alignSelf: 'center'}]}/>
-        </View>
-        <View style={styles.gridColumn}>
-            {/*右上*/}
-            <View style={[styles.borderDesign, {
-                borderTopWidth: 3,
-                borderRightWidth: 3,
-                alignSelf: 'flex-end'
-            }]}/>
-        </View>
-    </View>
 
         <View style={styles.gridRow}>
             <View style={[styles.gridColumn, {flexDirection: 'row'}]}>
@@ -52,7 +52,8 @@ const DefaultEditor = (props) => (
                     alignSelf: 'flex-end'
                 }]}/>
             </View>
-        </View></View>
+        </View>
+    </View>
 )
 
 export default DefaultEditor;

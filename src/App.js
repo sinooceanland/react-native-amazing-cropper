@@ -38,7 +38,6 @@ App.propTypes = {
     initialRotation: PropTypes.number,
     NOT_SELECTED_AREA_OPACITY: PropTypes.number,
     BORDER_WIDTH: PropTypes.number,
-    gridColumn_borderWidth: PropTypes.number,
 };
 
 App.defaultProps = {
@@ -50,8 +49,7 @@ App.defaultProps = {
         />
     ),
     editorComponent: (
-        <DefaultEditor
-        />
+        <DefaultEditor/>
     ),
     onDone: () => {
     },
