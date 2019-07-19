@@ -612,15 +612,18 @@ class CropperPage extends Component {
     }
 
     onDone = () => {
-        if (this.isRectangleMoving) return null;
-
+        this.props.onStartCrop && this.props.onStartCrop();
+        if (this.isRectangleMoving){
+            this.props.onDone();
+            return null;
+        }
         //this.setState({ isSaving: true });
         const IMAGE_W = SCREEN_WIDTH - this.state.RIGHT_LIMIT - this.state.LEFT_LIMIT;
         const IMAGE_H = SCREEN_HEIGHT - this.state.BOTTOM_LIMIT - this.state.TOP_LIMIT;
-        let x = (this.state.leftPosition.x._value - this.state.LEFT_LIMIT) + this.props.BORDER_WIDTH;
-        let y = (this.state.topPosition.y._value - this.state.TOP_LIMIT) + this.props.BORDER_WIDTH;
-        let width = this.state.rightPosition.x._value - this.state.leftPosition.x._value - this.props.BORDER_WIDTH;
-        let height = this.state.bottomPosition.y._value - this.state.topPosition.y._value - this.props.BORDER_WIDTH;
+        let x = (this.state.leftPosition.x._value - this.state.LEFT_LIMIT) + this.props.BORDER_WIDTH +this.props.editorDeviation;
+        let y = (this.state.topPosition.y._value - this.state.TOP_LIMIT) + this.props.BORDER_WIDTH +this.props.editorDeviation;
+        let width = this.state.rightPosition.x._value - this.state.leftPosition.x._value - this.props.BORDER_WIDTH - this.props.editorDeviation*2
+        let height = this.state.bottomPosition.y._value - this.state.topPosition.y._value - this.props.BORDER_WIDTH - this.props.editorDeviation*2;
         let imageWidth = this.props.imageWidth > 0 ? this.props.imageWidth : 1280; // 340
         let imageHeight = this.props.imageHeight > 0 ? this.props.imageHeight : 747; // 500
         if (this.state.rotation % 180 === 90) {
@@ -628,14 +631,13 @@ class CropperPage extends Component {
             imageWidth = imageHeight;
             imageHeight = pivot;
         }
-        width = (width * imageWidth) / IMAGE_W;
-        height = (height * imageHeight) / IMAGE_H;
-        x = (x * imageWidth) / IMAGE_W;
-        y = (y * imageHeight) / IMAGE_H;
+        width = (width * imageWidth) / IMAGE_W ;
+        height = (height * imageHeight) / IMAGE_H ;
+        x = (x * imageWidth) / IMAGE_W ;
+        y = (y * imageHeight) / IMAGE_H ;
         const cropData = {
             offset: {x, y},
             size: {width, height},
-            resizeMode: 'stretch'
         };
         RNImageRotate.rotateImage(
             this.props.imageUri,
@@ -651,6 +653,7 @@ class CropperPage extends Component {
                     (err) => {
                         console.log('cropping error');
                         console.log(err);
+                        this.props.onDone();
                     }
                 );
                 //
@@ -658,6 +661,7 @@ class CropperPage extends Component {
             (err) => {
                 alert(err);
                 console.log(err);
+                this.props.onDone();
             }
         );
     }
@@ -718,6 +722,7 @@ class CropperPage extends Component {
 CropperPage.propTypes = {
     footerComponent: PropTypes.object,
     editorComponent: PropTypes.object,
+    onStartCrop:PropTypes.func,
     onDone: PropTypes.func,
     onCancel: PropTypes.func,
     imageUri: PropTypes.string,
@@ -729,6 +734,8 @@ CropperPage.propTypes = {
     RIGHT_VALUE: PropTypes.number,
     initialRotation: PropTypes.number,
     NOT_SELECTED_AREA_OPACITY: PropTypes.number,
+    BORDER_WIDTH: PropTypes.number,
+    editorDeviation: PropTypes.number,
 };
 
 export default CropperPage;

@@ -8,6 +8,7 @@ const App = (props) => (
     <Cropper
         footerComponent={props.footerComponent}
         editorComponent={props.editorComponent}
+        onStartCrop={props.onStartCrop}
         onDone={props.onDone}
         onCancel={props.onCancel}
         imageUri={props.imageUri}
@@ -20,12 +21,15 @@ const App = (props) => (
         initialRotation={props.initialRotation}
         NOT_SELECTED_AREA_OPACITY={props.NOT_SELECTED_AREA_OPACITY}
         BORDER_WIDTH={props.BORDER_WIDTH}
+        editorDeviation={props.editorDeviation}
     />
 )
 
 
 App.propTypes = {
+    editorComponent:PropTypes.object,
     footerComponent: PropTypes.object,
+    onStartCrop:PropTypes.func,
     onDone: PropTypes.func,
     onCancel: PropTypes.func,
     imageUri: PropTypes.string,
@@ -38,6 +42,7 @@ App.propTypes = {
     initialRotation: PropTypes.number,
     NOT_SELECTED_AREA_OPACITY: PropTypes.number,
     BORDER_WIDTH: PropTypes.number,
+    editorDeviation: PropTypes.number,
 };
 
 App.defaultProps = {
@@ -51,6 +56,9 @@ App.defaultProps = {
     editorComponent: (
         <DefaultEditor/>
     ),
+    onStartCrop:()=>{
+
+    },
     onDone: () => {
     },
     onCancel: () => {
@@ -65,6 +73,7 @@ App.defaultProps = {
     initialRotation: 0,
     NOT_SELECTED_AREA_OPACITY: 0.5,
     BORDER_WIDTH: 10,
+    editorDeviation:0,
 };
 
 export default App;
